@@ -1,0 +1,5 @@
+Django>=3.2.5,<3.3
+#psycopg2==2.9
+graphene-django>=2.15.0,<2.16
+requests>=2.25.1,<2.26
+dhis2.py>=2.1.2,<2.2
