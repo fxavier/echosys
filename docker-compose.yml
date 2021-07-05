@@ -20,15 +20,68 @@ services:
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=devpassword
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
     depends_on: 
       - db
+      - redis
   
   db:
     image: postgres:13-alpine 
+    container_name: echodb
     environment:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=devpassword 
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
       
     ports: 
       - 5432:5432
+
+  celery:
+    restart: always
+    build: 
+      context: . 
+    command: celery -A app worker -l info
+    volumes: 
+      - ./app:/app
+    environment:
+      - SECRET_KEY=devsecretkey
+      - DEBUG=1
+      - DB_HOST=db 
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=devpassword
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - app
+      - redis
+    
+  celery-beat:
+    build:
+      context: .
+    command: celery -A app beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    volumes: 
+      - ./app:/app
+    environment:
+      - SECRET_KEY=devsecretkey
+      - DEBUG=1
+      - DB_HOST=db 
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=devpassword
+    depends_on:
+      - app
+      - redis
+
+  redis:
+      image: redis:alpine
+      ports:
+        - 6379:6379
+
+volumes:
+  pgdata:
+      
+

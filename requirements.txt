@@ -4,3 +4,7 @@ graphene-django>=2.15.0,<2.16
 requests>=2.25.1,<2.26
 dhis2.py>=2.1.2,<2.2
 uWSGI>=2.0.19.1,<2.1
+celery>=5.1.2,<5.2
+django-celery-beat>=2.2.1,<2.3
+django-celery-results>=2.2.0,<2.3
+redis>=3.5.3,<3.6
