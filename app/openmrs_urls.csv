@@ -1,0 +1,13 @@
+﻿Province,instance_name,uuid,url,dataSet
+Tete,openmrs,3443cd92-c2ea-4932-afa0-b58986476fbb,http://197.218.241.174:8080/openmrs/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,openmrs,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/openmrs/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,chissui,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/chissui/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,emondlane,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/emondlane/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,gondola,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/gondola/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,hpc,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/hpc/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,macate,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/macate/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,nhamaonha,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/nhamaonha/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,pdmaio,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/pdmaio/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Manica,sdabril,3443cd92-c2ea-4932-afa0-b58986476fbb,http://41.191.74.42:8080/sdabril/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Niassa,openmrs,3443cd92-c2ea-4932-afa0-b58986476fbb,http://197.218.206.34:8080/openmrs/ws/rest/v1/reportingrest/dataSet/,ART Optimization
+Niassa,hpl,3443cd92-c2ea-4932-afa0-b58986476fbb,http://197.218.206.34:8080/hpl/ws/rest/v1/reportingrest/dataSet/,ART Optimization

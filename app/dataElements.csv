@@ -1,0 +1,12 @@
+﻿id,name,openmrs
+o38jb4XVsCK,# criancas 0-14 em TARV este mes,em_tarv
+R33kWGdARmW,"# criancas elegíveis a regime contendo LVP/r   
+ate a data final do periodo de reporte",elegiveislpvr_geral
+BArWsHmA2Wh,# crianças (0-14 anos) que transitaram para um regime contendo LPV/r ate a data final do periodo de reporte,lpvr_geral
+A6IPW5UPJAS,"# criancas elegíveis a regime contendo LVP/r   
+ate a data final do periodo de reporte QUE AINDA NAO INICIARAM LVP/r",elegiveis_lpvr
+ftPaiF3qAnf,# crianças (0-14 anos) que transitaram para um regime contendo LPV/r durante o periodo de reporte,lpvr
+ofYMxDHPw2S,# criancias elegíveis a regime contendo DTG ate a data final do periodo de reporte,elegiveisdtg_geral
+T04FRu6fCdl,# crianças (0-14 anos ) que transitaram para um regime contendo DTG ate a data final do periodo de reporte,dtg_geral
+PfHmsaTbJb3,# criancias elegíveis a regime contendo DTG ate a data final do periodo de reporte QUE AINDA NAO INICIARAM DTG,elegiveisdtg
+FH50z03lWun,# crianças (0-14 anos ) que transitaram para um regime contendo DTG durante o periodo de reporte,dtg

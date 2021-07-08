@@ -1,3 +1,4 @@
 from django.contrib import admin
+from openmrs_viamo.models import Visit
 
-# Register your models here.
+admin.site.register(Visit)

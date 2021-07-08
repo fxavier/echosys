@@ -8,3 +8,4 @@ celery>=5.1.2,<5.2
 django-celery-beat>=2.2.1,<2.3
 django-celery-results>=2.2.0,<2.3
 redis>=3.5.3,<3.6
+djangorestframework>=3.12.4,<3.13
