@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from openmrs_dhis.services.metadata_import import ImportMetadata
-from openmrs_dhis.services.art_optimization import get_openmrs_optimization
+from openmrs_dhis.services.data_fetch_service import fetch_openmrs_optimization_data
 
 
 @shared_task
@@ -17,11 +17,11 @@ def load_dataElements():
 @shared_task
 def load_openmrs_urls(): 
     urls = ImportMetadata()
-    urls.import_openmrs_urls('openmrs_urls.csv')
+    urls.import_openmrs_urls('openmrs_uri.csv')
     
 @shared_task
 def get_openmrs_optimization():
-    get_openmrs_optimization()
+    fetch_openmrs_optimization_data()
     
                 
 # @shared_task

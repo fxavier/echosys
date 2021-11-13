@@ -1,4 +1,5 @@
 import requests
+from  django.db.models import Q
 from openmrs_viamo.models import Visit
 from datetime import datetime, timedelta, date
 
@@ -93,12 +94,12 @@ def post_data_to_server():
     startDate = date.fromisoformat('2021-06-10')
     endDate = date.fromisoformat('2021-06-16')
     payload_list = []
-    visit = Visit.objects.exclude(phone_number=None).filter(next_appointment_date__range=(start_date, end_date), health_facility='CS N4')
+    visit = Visit.objects.exclude(phone_number=None).filter(next_appointment_date__range=(start_date, end_date), health_facility__in = ['CS Nº 3 - Bairro Manyanga', 'CS Nº 4 - Bairro Muthemba'])
     for v in visit: 
         phone = v.phone_number.strip()
         payload = {
             "api_key": API_KEY,
-            "phone": phone[0:9],
+            "phone": phone[:9],
             "receive_voice": "1",
             "receive_sms": "1",
             "preferred_channel": "1",
@@ -122,11 +123,15 @@ def post_data_to_server():
         payload_list.append(payload)
         
     print(payload_list)
+    print(f'{len(payload_list)} records will be sent....')
+    records = 0
     try:
         for data in payload_list:
+            records += 1
             response = requests.post(URL, json=data)
+            print(f'Sending {records} of {len(payload_list)} Records')
             print(response.raise_for_status)
-       
+         
     except requests.exceptions.RequestException as err:
         print(err, URL)
     

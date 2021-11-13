@@ -6,46 +6,46 @@ from dhis2 import Api
 from core.models import HealthFacility, DataElement, OpenmrsURL, DataElementValue
                         
                             
-def get_openmrs_optimization(self): 
-    startDate = datetime.now() - timedelta(days=16)
-    endDate = startDate + timedelta(days=29)
-    period = endDate.strftime('%Y%m')
-    params = {
-        'startDate': str(startDate.strftime('%Y-%m-%d')),
-        'endDate': str(endDate.strftime('%Y-%m-%d'))
-    }
+# def get_openmrs_optimization(self): 
+#     startDate = datetime.now() - timedelta(days=16)
+#     endDate = startDate + timedelta(days=29)
+#     period = endDate.strftime('%Y%m')
+#     params = {
+#         'startDate': str(startDate.strftime('%Y-%m-%d')),
+#         'endDate': str(endDate.strftime('%Y-%m-%d'))
+#     }
     
-    try:
-        API_URL = 'http://197.218.206.34:8080/openmrs/ws/rest/v1/reportingrest/dataSet/3443cd92-c2ea-4932-afa0-b58986476fbb'
+#     try:
+#         API_URL = 'http://197.218.206.34:8080/openmrs/ws/rest/v1/reportingrest/dataSet/3443cd92-c2ea-4932-afa0-b58986476fbb'
         
-        response = requests.get(API_URL, params=params, auth=('xavier.nhagumbe', 'Goabtgo1'))
-        json_data = response.json()['rows']
-        for data in json_data:
-            us = ""
-            data_dict = {}
-            for key, value in data.items(): 
-                if key == 'id':
-                    continue
-                elif key == 'us':
-                    us = value
-                    continue
-                else:
-                    data_dict[key] = value
+#         response = requests.get(API_URL, params=params, auth=('xavier.nhagumbe', 'Goabtgo1'))
+#         json_data = response.json()['rows']
+#         for data in json_data:
+#             us = ""
+#             data_dict = {}
+#             for key, value in data.items(): 
+#                 if key == 'id':
+#                     continue
+#                 elif key == 'us':
+#                     us = value
+#                     continue
+#                 else:
+#                     data_dict[key] = value
                     
-            for key, value in data_dict.items():
-                dataElement = DataElement.objects.get(openmrs=key)
-                healthFacility = HealthFacility.objects.get(name=us)
-                dataElementValue, created = DataElementValue.objects.get_or_create(
-                    period=period,
-                    value=value,
-                    healthFacility=healthFacility,
-                    dataElement=dataElement
-                )
-                dataElementValue.save()
-                print(key, value)
+#             for key, value in data_dict.items():
+#                 dataElement = DataElement.objects.get(openmrs=key)
+#                 healthFacility = HealthFacility.objects.get(name=us)
+#                 dataElementValue, created = DataElementValue.objects.get_or_create(
+#                     period=period,
+#                     value=value,
+#                     healthFacility=healthFacility,
+#                     dataElement=dataElement
+#                 )
+#                 dataElementValue.save()
+#                 print(key, value)
                 
-    except requests.exceptions.RequestException as err: 
-        print(err, API_URL)
+#     except requests.exceptions.RequestException as err: 
+#         print(err, API_URL)
         
  
 # def get_openmrs_data(self): 

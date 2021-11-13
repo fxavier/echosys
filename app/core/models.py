@@ -87,6 +87,7 @@ class DataElementValue(models.Model):
     
 class OpenmrsURL(models.Model): 
     province = models.CharField(max_length=100)
+    openmrs_us = models.CharField(max_length=100, null=True, blank=True)
     instance_name = models.CharField(max_length=100)
     uuid = models.CharField(max_length=255)
     url = models.CharField(max_length=500)

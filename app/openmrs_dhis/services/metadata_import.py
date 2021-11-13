@@ -33,7 +33,7 @@ class ImportMetadata:
             for row in data:
                 dataSet = DataSet.objects.get(name='ART Optimization')
                 openmrs_url = OpenmrsURL.objects.create(
-                    province=row[0], instance_name=row[1],
-                    uuid=row[2], url=row[3], dataSet=dataSet
+                    province=row[0], openmrs_us=row[1], instance_name=row[2],
+                    uuid=row[4], url=row[3], dataSet=dataSet
                 )
                 openmrs_url.save()
