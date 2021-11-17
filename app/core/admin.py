@@ -3,7 +3,7 @@ from core.models import Province, District, HealthFacility, DataSet, DataElement
     DataSet, PeriodDescription, DataElementValue
 from openmrs_dhis.models import OpenmrsOptimization
 from openmrs.models import Paciente, Location, Inscricao, ConsultaClinica, \
-    ConsultaApss, VisitaDomiciliaria, RelatorioVisita, ExameClinico
+    ConsultaApss, VisitaDomiciliaria, RelatorioVisita, ExameClinico, Fila
 
 
 class DataElementAdmin(admin.ModelAdmin):
@@ -72,6 +72,17 @@ class LocationAdmin(admin.ModelAdmin):
                     'description', 'state_province', 'parent_location']
 
 
+class FilaAdmin(admin.ModelAdmin):
+    list_display = ['data_levantamento', 'regime', 'formulacao',
+                    'quantidade', 'dosagem', 'data_proximo_levantamento'
+                    ]
+
+
+class ConsultaClinicaAdmin(admin.ModelAdmin):
+    list_display = ['paciente', 'data_consulta',
+                    'data_proxima_consulta', 'location']
+
+
 admin.site.register(DataElement, DataElementAdmin)
 admin.site.register(DataSet, DataSetAdmin)
 admin.site.register(Province, ProvinceAdmin)
@@ -84,8 +95,9 @@ admin.site.register(OpenmrsOptimization)
 admin.site.register(Paciente, PatientAdmin)
 admin.site.register(Location, LocationAdmin)
 admin.site.register(Inscricao)
-admin.site.register(ConsultaClinica)
+admin.site.register(ConsultaClinica, ConsultaClinicaAdmin)
 admin.site.register(VisitaDomiciliaria)
 admin.site.register(RelatorioVisita)
 admin.site.register(ConsultaApss)
 admin.site.register(ExameClinico)
+admin.site.register(Fila, FilaAdmin)
